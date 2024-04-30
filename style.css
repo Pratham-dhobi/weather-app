@@ -9,6 +9,7 @@ body {
     background-color: white;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 
 .main-container {
@@ -102,22 +103,6 @@ button span {
     position: absolute;
     display: block;
 }
-/* .time-container {
-    margin-top: 60px;
-    text-align: center;
-}
-.time-container p {
-    font-size: 20px;
-    color: white;
-}
-.city-container {
-    margin-top: 40px;
-    text-align: center;
-}
-.city-container {
-    font-size: 30px;
-    color: white;
-} */
 
 .left-bottom-container {
     height: 42%;
@@ -168,13 +153,58 @@ button span {
 }
 
 
-
-
 .right-container {
     height: 100%;
     width: 75%;
-    background-color: #0d2e4b;
     padding: 20px;
-    /* background-color: #028ee6; */
-    background-color: white;
+    /* background-color: #8ac6fc; */
+    background-color: rgba(255, 255, 255, 0.521);
+}
+.forecast-container {
+    height: 30%;
+    width: 100%;
+    /* background-color: rgba(0, 0, 255, 0.26); */
+    background-color: rgba(255, 255, 255, 0.39);
+    border-radius: 10px;
+    box-shadow: #0000001a 0px 0px 20px 0px;
+    margin: 0 0 20px;
+    padding: 15px;
+}
+.forecast-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* gap: 5px; */
+    position: relative;
+}
+.forecast-heading::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(19, 42, 49, 0.664);
+    height: 2px;
+    width: 100%;
+    display: block;
+    bottom: -6px;
+}
+.scroll-cards {
+    width: 100%;
+    height: 75%;
+    margin-top: 12px;
+    overflow-x: auto;
+    background-color: blue;
+}
+.right-bottom-container {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.right-bottom-card {
+    height: 100%;
+    width: 24%;
+    box-shadow: #0000001a 0px 0px 20px 0px;
+    border-radius: 10px;
+    padding: 10px;
 }
