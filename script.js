@@ -48,7 +48,9 @@ fetchData = async(city) => {
 			
 			document.querySelector('.hour-cards').innerHTML = '';
 			for(let hour of result.days[0].hours) {
-				document.querySelector('.hour-cards').appendChild(createHourlyCard(hour.datetime, hour.temp));
+				if(hour.datetime >= result.currentConditions.datetime) {
+				 	document.querySelector('.hour-cards').appendChild(createHourlyCard(hour.datetime, hour.temp));
+				}
 			}
 
 			document.querySelector('.day-cards').innerHTML = '';
