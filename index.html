@@ -21,8 +21,8 @@
     <div class="main-container">
         <div class="left-container container">
             <div class="form">
-                <input type="text" name="serch" id="search" placeholder="Enter Your City Here">
-                <button><span class="material-symbols-outlined search-icon">search</span></button>
+                <input type="text" name="search" id="search" placeholder="Enter Your City Here" value="Surat, Gujarat">
+                <button onclick="fetchinfo()"><span class="material-symbols-outlined search-icon">search</span></button>
             </div>
            
             <div class="img">
@@ -30,7 +30,7 @@
             </div>
            
             <div class="temp-container">
-                <span class="temp">31<sup><sup>o</sup></sup><span><sup>C</sup></span></span><br>
+                <span class="temp"></span><br>
                 <span id="temp-text">Mostly Cloud</span>
             </div>
 
@@ -40,28 +40,28 @@
                         <span class="material-symbols-outlined icon">thermostat</span>
                         <span class="heading">Feels Like</span>
                     </div>
-                    <span class="feels-like-value value">30<sup><sup>o</sup></sup>C</span>
+                    <span class="feels-like-value value"></span>
                 </div>
                 <div class="main-card visibility-card">
                     <div class="card-heading">
                         <span class="material-symbols-outlined icon">visibility</span>
                         <span class="heading">Visibility</span>
                     </div>
-                    <span class="visibility-value value">6 mi</span>
+                    <span class="visibility-value value"></span>
                 </div>
                 <div class="main-card humidity-card">
                     <div class="card-heading">
                         <span class="material-symbols-outlined icon">humidity_low</span>
                         <span class="heading">Humidity</span>
                     </div>
-                    <span class="humidity-value value">82%</span>
+                    <span class="humidity-value value"></span>
                 </div>
                 <div class="main-card wind-card">
                     <div class="card-heading">
                         <span class="material-symbols-outlined icon">air</span>
                         <span class="heading">Wind</span>
                     </div>
-                    <span class="wind-value value">6 km/h</span>
+                    <span class="wind-value value"></span>
                 </div>
             </div>
         </div>
@@ -72,43 +72,45 @@
                     <span class="material-symbols-outlined icon">schedule</span>
                     <span class="heading">Hourly Forecast</span>
                 </div>
-                <div class="hour-cards scroll-cards">
-
-                </div>
+                <div class="hour-cards scroll-cards"></div>
             </div>
             <div class="day-wise-forecast forecast-container">
                 <div class="forecast-heading card-heading">
                     <span class="material-symbols-outlined icon">calendar_month</span>
-                    <span class="heading">10-Day Forecast</span>
+                    <span class="heading">15-Day Forecast</span>
                 </div>
                 <div class="day-cards scroll-cards">
 
                 </div>
             </div>
             <div class="right-bottom-container">
-                <div class="right-bottom-card uv-card">
-                    <div class="card-heading">
+                <div class="right-bottom-card temp-card">
+                    <div class="card-heading" id="temp-heading">
                         <span class="material-symbols-outlined icon">thermometer</span>
                         <span class="heading">Temperature</span>
                     </div>
+                    <span class="temp-value value"></span>
                 </div>
-                <div class="right-bottom-card dew-card">
-                    <div class="card-heading">
+                <div class="right-bottom-card snow-card">
+                    <div class="card-heading" id="snow-heading">
                         <span class="material-symbols-outlined icon">snowing</span>
                         <span class="heading">Snow</span>
                     </div>
+                    <span class="snow-value value"></span>
                 </div>
-                <div class="right-bottom-card subrise-card">
-                    <div class="card-heading">
+                <div class="right-bottom-card uv-card">
+                    <div class="card-heading" id="uv-heading">
                         <span class="material-symbols-outlined icon">thermostat</span>
                         <span class="heading">UV Index</span>
                     </div>
+                    <span class="uv-value value"></span>
                 </div>
-                <div class="right-bottom-card sunset-card">
-                    <div class="card-heading">
+                <div class="right-bottom-card dew-card">
+                    <div class="card-heading" id="dew-heading">
                         <span class="material-symbols-outlined icon">dew_point</span>
                         <span class="heading">Dew</span>
                     </div>
+                    <span class="dew-value value"></span>
                 </div>
             </div>
         </div>
