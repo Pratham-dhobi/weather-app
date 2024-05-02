@@ -46,13 +46,18 @@ function showSpinner(display) {
 		document.querySelector('.spinner').style.display = 'none';
 	}
 }
+function changeLineColor(card) {
+	card.classList.add('lightbg');
+}
+function nightCardBg(card) {
+	card.classList.add('nightcardbg');
+}
 fetchData = async(city) => {
 	 	let loading = true;
 	 	showSpinner(loading);
 
      	const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}%2CINDIA?unitGroup=us&key=FEJ88FR48ENSWZF3HAFLCW8KE`);
 	 	const result = await response.json();
-	 	
 		loading = false;
 		showSpinner(loading);
 		
@@ -69,12 +74,14 @@ fetchData = async(city) => {
 		
 		document.querySelector('.temp-value').innerHTML = `<div class="temp-inner-container">${toCelsius(result.currentConditions.temp)}<sup><sup>o</sup></sup>C</div>`;
 
-		document.querySelector('.snow-value').innerHTML = `<div class="snow-inner-container"><p>${Number.parseFloat(result.currentConditions.snow)}"</p></div>`;
+		document.querySelector('.pressure-value').innerHTML = `<div class="pressure-inner-container"><p>${Number.parseFloat(result.currentConditions.pressure)} hPa</p></div>`;
 
 		document.querySelector('.uv-value').innerHTML = `<div class="uv-inner-container"><p>${result.currentConditions.uvindex}</p><p>${measureUV(result.currentConditions.uvindex)}</p></div>`;
 
-		document.querySelector('.dew-value').innerHTML = `<div class="dew-inner-container">${result.currentConditions.dew}<sup><sup>o</sup></sup>C</div>`;
+		document.querySelector('.dew-value').innerHTML = `<div class="dew-inner-container">${toCelsius(result.currentConditions.dew)}<sup><sup>o</sup></sup>C</div>`;
 		
+		document.querySelector('#temp-text').innerText = result.currentConditions.conditions;
+
 		document.querySelector('.hour-cards').innerHTML = '';
 		for(let hour of result.days[0].hours) {
 			if(hour.datetime >= result.currentConditions.datetime) {
@@ -89,30 +96,39 @@ fetchData = async(city) => {
 		
 		let left_container = document.querySelector('.left-container');
 		let right_container = document.querySelector('.right-container');
-		if(result.currentConditions.datetime >= result.currentConditions.sunset || result.currentConditions.hours.datetime <= result.currentConditions.sunrise) {
+		
+		if(result.currentConditions.sunset.slice(0,1) === result.currentConditions.datetime.slice(0,1)) {
+			
+			left_container.style.background = 'url(/images/evening.jpg)';
+
+		}else if(result.currentConditions.datetime > result.currentConditions.sunset || result.currentConditions.datetime < result.currentConditions.sunrise) {
+	
 			left_container.style.background = 'url(/images/night-image.jpg)';
 			left_container.style.backgroundPositionX = '40%';
 			left_container.style.backgroundRepeat = 'no-repeat';
-			right_container.style.backgroundColor = 'rgb(12 22 64)';
+			right_container.style.backgroundColor = 'rgb(12, 22, 64)';
 			showNightIcon();
+		
 			let inner_cards = document.querySelectorAll('.inner-card');
 			let icons = document.querySelectorAll('.icon');
 			for(let i= 0;i<inner_cards.length;i++) {
 				inner_cards[i].style.color = 'rgb(213, 213, 213)';
-				inner_cards[i].style.cursor = 'pointer';
+				changeLineColor(inner_cards[i]);
+				nightCardBg(inner_cards[i]);
 			}
+			
 			for (let i = 0; i < icons.length; i++) {
 				icons[i].style.color = '#00fbfd';				
 			}
+			
 			let headings = document.querySelectorAll('.heading');
 			for (let i = 0; i < headings.length; i++) {
 				headings[i].style.color = '#00fbfd';
-				
 			}
+			
 			let values = document.querySelectorAll('.value');
 			for (let i = 0; i < values.length; i++) {
 				values[i].style.color = 'white';
-				
 			}
 		}
 	}
