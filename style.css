@@ -12,6 +12,13 @@ body {
     overflow: hidden;
 }
 
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* background-color: blue; */
+}
 .main-container {
     height: 100%;
     width: 100%;
@@ -223,39 +230,26 @@ button::before {
     box-shadow: #0000001a 0px 0px 20px 0px;
     border-radius: 10px;
     padding: 10px;
+    overflow: hidden;
+    line-height: 1;
+    background-color: rgba(255, 255, 255, 0.39);
 }
-.temp-card {
-    text-align: center;
+.right-bottom-container .value {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 80%;
+    overflow: hidden;
 }
-.temp-card #temp-heading {
-    margin-bottom: 40px;
+.uv-inner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-.snow-card {
-    text-align: center;
+.uv-inner-container p:nth-child(2) {
+    font-size: 24px;
 }
-.snow-card #snow-heading {
-    margin-bottom: 40px;
-}
-.uv-card {
-    text-align: center;
-}
-.uv-card #uv-heading {
-    margin-bottom: 40px;
-}
-.dew-card {
-    text-align: center;
-}
-.dew-card #dew-heading {
-    margin-bottom: 40px;
-}
-/* .hour-scroll-card {
-    width: 15%;
-    height: 100%;
-    display: inline-block; 
-    background-color: rgba(128, 87, 87, 0.336);
-    border-radius: 10px;
-    box-shadow: #0000001a 0px 0px 20px 0px;
-} */
 .inner-card {
     display: flex;
     align-items: center;
@@ -265,7 +259,6 @@ button::before {
     width: 15%;
     padding: 20px 70px;
     border-radius: 10px;
-    /* background-color: rgba(128, 87, 87, 0.336); */
     position: relative;
     color:  rgba(6, 14, 15, 0.664);
     transition: 0.2s;
@@ -284,7 +277,7 @@ button::before {
     background-color: rgba(128, 128, 128, 0.425);
     width: 2px;
     height: 70%;
-    right: -5px;   
+    right: -6px;   
 }
 .inner-card:last-child::after {
     display: none;
