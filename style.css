@@ -239,7 +239,7 @@ button::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     padding: 0;
 }
 .right-bottom-card {
@@ -331,7 +331,8 @@ button::before {
     background-color: rgb(11, 60, 75);
 }
 
-@media only screen and (max-width: 600px){
+/* media queries */
+@media screen and (max-width: 1200px){
     .body {
         height: 100%;
     }
@@ -341,6 +342,48 @@ button::before {
         justify-content: center;
         height: 100vh;
     }
+    .left-container {
+        width: 40%;
+        height: 100vh;
+        padding: 10px;
+    }
+    .left-bottom-container {
+        height: 40%;
+        margin-top: 40px;
+        gap: 3px;
+    }
+    .main-card {
+        height: 49%;
+        width: 49%;
+    }
+    .card-heading {
+        gap: 2px;    
+    }
+    .heading {
+        font-size: 16px;
+    }
+    .value {
+        font-size: 24px;
+    }
+}
+@media screen and (max-width: 1000px) { 
+    .forecast-container {
+        height: 27vh;
+    }
+    .right-bottom-container {
+        flex-wrap: wrap;
+        height: 33vh;
+    }
+    .right-bottom-card {
+        width: 49%;
+        height: 49%;
+    }
+    .right-bottom-container .right-bottom-card:nth-child(3),
+    .right-bottom-container .right-bottom-card:nth-child(4){
+        margin-top: 4px;
+    }
+}
+@media screen and (max-width: 750px) {
     .main-container {
         display: flex;
         flex-direction: column;
@@ -356,17 +399,18 @@ button::before {
         height: 120vh;
     }
     .main-card {
-        height: 100%;
-        min-width: 25%;
+        height: 49%;
+        width: 48%;
     }
     .card-heading .icon {
         font-size: 24px;
     }
     .left-bottom-container {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         gap: 5px;
-        height: 25vh;
+        height: 30vh;
         margin-top: 45px;
+        width: 100%;
     }
     .value {
         font-size: 24px;
@@ -389,6 +433,7 @@ button::before {
     .right-bottom-card {
         width: 49%;
         height: 47%;
+        box-shadow: #0000001a 0px 0px 5px 0px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -446,5 +491,20 @@ button::before {
     }
     .right-bottom-card:nth-child(1) .card-heading {
         gap: 1px;
+    }
+}
+@media screen and (max-width: 300px) {
+    .heading {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-height: 600px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
     }
 }

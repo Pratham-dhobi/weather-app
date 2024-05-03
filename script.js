@@ -102,7 +102,9 @@ fetchData = async(city) => {
 		
 		if(result.currentConditions.sunset.slice(0,2) === result.currentConditions.datetime.slice(0,2)) {
 
-			left_container.style.background = 'url(/images/evening.jpg)';
+			left_container.style.background = 'url(/images/evening.webp)';
+			left_container.style.backgroundPositionX = '60%';
+			left_container.style.backgroundSize = 'cover';
 			
 		}else if(result.currentConditions.datetime > result.currentConditions.sunset || result.currentConditions.datetime < result.currentConditions.sunrise) {
 	
