@@ -60,13 +60,16 @@ fetchData = async(city) => {
 	 	const result = await response.json();
 		loading = false;
 		showSpinner(loading);
+		document.querySelector('.main-container').style.display = 'flex';
+		document.querySelector('.main-container').style.alignItems = 'center';
+		document.querySelector('.main-container').style.justifyContent = 'center';
 		
 		// set temperature
 		document.querySelector('.temp').innerHTML = `${toCelsius(result.currentConditions.temp)}<sup><sup>o</sup></sup><span><sup>C</sup></span>`;
 		// set feel like
 		document.querySelector('.feels-like-value').innerHTML = `${toCelsius(result.currentConditions.feelslike)}<sup><sup>o</sup></sup>C`;
 		// set visibility
-		document.querySelector('.visibility-value').innerHTML = `${result.currentConditions.visibility} mi`;
+		document.querySelector('.visibility-value').innerHTML = `${result.currentConditions.visibility} km`;
 		// set humidity
 		document.querySelector('.humidity-value').innerHTML = `${result.currentConditions.humidity}%`;
 		// set wind
@@ -97,10 +100,10 @@ fetchData = async(city) => {
 		let left_container = document.querySelector('.left-container');
 		let right_container = document.querySelector('.right-container');
 		
-		if(result.currentConditions.sunset.slice(0,1) === result.currentConditions.datetime.slice(0,1)) {
-			
-			left_container.style.background = 'url(/images/evening.jpg)';
+		if(result.currentConditions.sunset.slice(0,2) === result.currentConditions.datetime.slice(0,2)) {
 
+			left_container.style.background = 'url(/images/evening.jpg)';
+			
 		}else if(result.currentConditions.datetime > result.currentConditions.sunset || result.currentConditions.datetime < result.currentConditions.sunrise) {
 	
 			left_container.style.background = 'url(/images/night-image.jpg)';
